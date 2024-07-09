@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl6wqblrp7rwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw4od"]
+size = Vector2(20, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcta4"]
+size = Vector2(18, 18)
+
+[node name="tower" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_nw4od")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_fcta4")

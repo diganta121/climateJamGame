@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://doqstbl8a707o"]
+
+[ext_resource type="Script" path="res://Fish.gd" id="1_8h7y2"]
+[ext_resource type="Texture2D" uid="uid://cplohnhpbyg4r" path="res://assets/bass.png" id="2_btdqm"]
+[ext_resource type="Texture2D" uid="uid://8pvtmkkg7ihy" path="res://assets/fish.png" id="2_t0t0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5qrs"]
+atlas = ExtResource("2_btdqm")
+region = Rect2(0, 0, 66, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1bap"]
+atlas = ExtResource("2_t0t0d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l68s"]
+atlas = ExtResource("2_t0t0d")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg7fd"]
+atlas = ExtResource("2_t0t0d")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar6yk"]
+atlas = ExtResource("2_t0t0d")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgtil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qrs")
+}],
+"loop": true,
+"name": &"bass",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1bap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l68s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg7fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar6yk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktgjt"]
+radius = 5.99988
+height = 24.4187
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eadim"]
+
+[node name="Fish" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8h7y2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wgtil")
+animation = &"bass"
+autoplay = "bass"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -2)
+rotation = 1.56455
+scale = Vector2(1.20927, 2.26496)
+shape = SubResource("CapsuleShape2D_ktgjt")
+
+[node name="area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+position = Vector2(-6, -1)
+rotation = -1.57286
+scale = Vector2(0.78061, -3.11165)
+shape = SubResource("CircleShape2D_eadim")
