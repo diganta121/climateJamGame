@@ -1,87 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd3o03008mkjh"]
+[gd_scene load_steps=5 format=3 uid="uid://cd3o03008mkjh"]
 
+[ext_resource type="Script" path="res://Game.gd" id="1_n5bs8"]
 [ext_resource type="PackedScene" uid="uid://dl70ur6j0f4cl" path="res://player.tscn" id="1_rxnuy"]
 [ext_resource type="PackedScene" uid="uid://doqstbl8a707o" path="res://fish.tscn" id="2_ax5o1"]
+[ext_resource type="PackedScene" uid="uid://di5d20smlxltb" path="res://plastic.tscn" id="4_pp6nf"]
 
-[node name="Scene" type="Node2D"]
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+rotation = -0.0112832
+script = ExtResource("1_n5bs8")
 
 [node name="Player" parent="." instance=ExtResource("1_rxnuy")]
-position = Vector2(48, 33)
+position = Vector2(-109.88, -11.2405)
 rotation = 0.000305517
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="Node" type="Node" parent="."]
+[node name="Fishes" type="Node" parent="."]
 
-[node name="Fish" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-41, -35)
 
-[node name="Fish2" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish2" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(238, 131)
 
-[node name="Fish3" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish3" parent="Fishes" instance=ExtResource("2_ax5o1")]
 
-[node name="Fish4" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish4" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-8, 90)
 
-[node name="Fish5" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish5" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(242, -6)
 
-[node name="Fish6" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish6" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(146, 103)
 
-[node name="Fish7" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish7" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(43, 137)
 
-[node name="Fish8" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish8" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(114, -11)
 
-[node name="Fish9" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish9" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(178, 16)
 
-[node name="Fish10" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish10" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(258, 51)
 
-[node name="Fish11" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish11" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(71, -54)
 
-[node name="Fish12" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish12" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-84, 108)
 
-[node name="Fish13" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish13" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(122, 173)
 
-[node name="Fish14" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish14" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-2, 108)
 
-[node name="Fish15" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish15" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(100, 50)
 
-[node name="Fish16" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish16" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-95, 29)
 
-[node name="Fish17" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish17" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(59, 69)
 
-[node name="Fish18" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish18" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-150, 28)
 
-[node name="Fish19" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish19" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(91, 96)
 
-[node name="Fish20" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish20" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(-39, 41)
 
-[node name="Fish21" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish21" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(197, 80)
 
-[node name="Fish22" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish22" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(303, -21)
 
-[node name="Fish23" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish23" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(330, 82)
 
-[node name="Fish24" parent="Node" instance=ExtResource("2_ax5o1")]
+[node name="Fish24" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(212, -42)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Plastic" parent="Node" instance=ExtResource("4_pp6nf")]
+position = Vector2(-349, -42)

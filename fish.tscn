@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://doqstbl8a707o"]
+[gd_scene load_steps=14 format=3 uid="uid://doqstbl8a707o"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_8h7y2"]
 [ext_resource type="Texture2D" uid="uid://cplohnhpbyg4r" path="res://assets/bass.png" id="2_btdqm"]
@@ -53,10 +53,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktgjt"]
-radius = 5.99988
-height = 24.4187
+radius = 6.62576
+height = 26.4955
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eadim"]
+radius = 10.2862
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eqhr"]
+bg_color = Color(0.137255, 0, 0.00392157, 0.298039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf7xo"]
+bg_color = Color(1.90116e-06, 0.518764, 0.167638, 1)
 
 [node name="Fish" type="CharacterBody2D"]
 collision_layer = 2
@@ -69,18 +76,32 @@ animation = &"bass"
 autoplay = "bass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -2)
-rotation = 1.56455
+unique_name_in_owner = true
+position = Vector2(-2, -2)
+rotation = 1.60974
 scale = Vector2(1.20927, 2.26496)
 shape = SubResource("CapsuleShape2D_ktgjt")
 
-[node name="area" type="Area2D" parent="."]
+[node name="fishArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fishArea"]
 position = Vector2(-6, -1)
 rotation = -1.57286
 scale = Vector2(0.78061, -3.11165)
 shape = SubResource("CircleShape2D_eadim")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -37.0
+offset_top = -15.0
+offset_right = -33.0
+offset_bottom = 12.0
+scale = Vector2(12.0332, 0.141851)
+theme_override_styles/background = SubResource("StyleBoxFlat_7eqhr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xf7xo")
+step = 1.0
+value = 85.0
+show_percentage = false
