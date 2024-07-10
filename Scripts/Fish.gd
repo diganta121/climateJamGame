@@ -10,7 +10,8 @@ var alive = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# variation in health for each fish
-	health -= randi_range(-10,40)
+	health -= randi_range(1,40)
+	%healthbar.value = health
 
 
 func _physics_process(delta):
@@ -22,7 +23,7 @@ func _physics_process(delta):
 			if distance_to_player > 100+(rand_velocity*20):
 				var direction = global_position.direction_to(player.global_position)
 				var other_fish = $fishArea.has_overlapping_areas()
-				
+
 				if other_fish:
 					velocity = direction * (SPEED -40 + rand_velocity*30)
 					velocity.y -= rand_velocity * 40
@@ -31,6 +32,8 @@ func _physics_process(delta):
 					velocity = direction * SPEED
 			else:
 				velocity = Vector2.ZERO
+		if velocity.x != 0:
+			$AnimatedSprite2D.flip_h = velocity.x > 0
 		move_and_slide()
 	else:
 		%CollisionShape2D.disabled = true
@@ -39,6 +42,7 @@ func _physics_process(delta):
 
 func take_damage(x):
 	health -= x
+	%healthbar.value = health
 	if health < 0:
 		health = 0
 		alive = false
@@ -46,5 +50,6 @@ func take_damage(x):
 func hit_plastic():
 	health = 0
 	alive = false
+	%healthbar.value = health
 	Game.on_dead_fish()
 	

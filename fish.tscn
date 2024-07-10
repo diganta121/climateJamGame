@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://doqstbl8a707o"]
 
-[ext_resource type="Script" path="res://Fish.gd" id="1_8h7y2"]
+[ext_resource type="Script" path="res://Scripts/Fish.gd" id="1_8h7y2"]
 [ext_resource type="Texture2D" uid="uid://cplohnhpbyg4r" path="res://assets/bass.png" id="2_btdqm"]
 [ext_resource type="Texture2D" uid="uid://8pvtmkkg7ihy" path="res://assets/fish.png" id="2_t0t0d"]
 
@@ -71,6 +71,7 @@ collision_mask = 2
 script = ExtResource("1_8h7y2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_wgtil")
 animation = &"bass"
 autoplay = "bass"
@@ -103,5 +104,5 @@ scale = Vector2(12.0332, 0.141851)
 theme_override_styles/background = SubResource("StyleBoxFlat_7eqhr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xf7xo")
 step = 1.0
-value = 85.0
+value = 100.0
 show_percentage = false

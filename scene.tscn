@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd3o03008mkjh"]
+[gd_scene load_steps=8 format=3 uid="uid://cd3o03008mkjh"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_n5bs8"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_n5bs8"]
 [ext_resource type="PackedScene" uid="uid://dl70ur6j0f4cl" path="res://player.tscn" id="1_rxnuy"]
 [ext_resource type="PackedScene" uid="uid://doqstbl8a707o" path="res://fish.tscn" id="2_ax5o1"]
 [ext_resource type="PackedScene" uid="uid://di5d20smlxltb" path="res://plastic.tscn" id="4_pp6nf"]
+[ext_resource type="PackedScene" uid="uid://bl6wqblrp7rwa" path="res://tower.tscn" id="5_fc1pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvh3"]
+size = Vector2(97.7983, 20)
+
+[sub_resource type="TileSet" id="TileSet_nfvq0"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
-rotation = -0.0112832
+position = Vector2(34, 0)
 script = ExtResource("1_n5bs8")
 
 [node name="Player" parent="." instance=ExtResource("1_rxnuy")]
@@ -91,7 +97,21 @@ position = Vector2(330, 82)
 [node name="Fish24" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(212, -42)
 
-[node name="Node" type="Node" parent="."]
+[node name="plastics" type="Node" parent="."]
 
-[node name="Plastic" parent="Node" instance=ExtResource("4_pp6nf")]
-position = Vector2(-349, -42)
+[node name="Plastic" parent="plastics" instance=ExtResource("4_pp6nf")]
+position = Vector2(-355, -42)
+
+[node name="tower" parent="." instance=ExtResource("5_fc1pm")]
+position = Vector2(2016, -61)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3189, 3246)
+scale = Vector2(500, 110.346)
+shape = SubResource("RectangleShape2D_kbvh3")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nfvq0")
+format = 2

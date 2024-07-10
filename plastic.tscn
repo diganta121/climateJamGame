@@ -1,31 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://di5d20smlxltb"]
+[gd_scene load_steps=7 format=3 uid="uid://di5d20smlxltb"]
 
-[ext_resource type="Script" path="res://Plastic.gd" id="1_4lk15"]
+[ext_resource type="Script" path="res://Scripts/Plastic.gd" id="1_4lk15"]
+[ext_resource type="Texture2D" uid="uid://004mj7scl2hj" path="res://assets/plastic_bag2.png" id="2_4dhj4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hcme3"]
-radius = 11.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w37yh"]
+size = Vector2(25.9138, 19.7005)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfw5a"]
+atlas = ExtResource("2_4dhj4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u06ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfw5a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mym8p"]
+radius = 8.14363
 
 [node name="Plastic" type="AnimatableBody2D"]
 rotation = 0.0103473
+scale = Vector2(2, 2)
 collision_layer = 17
 collision_mask = 23
 script = ExtResource("1_4lk15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.999946, 0.0103471)
-scale = Vector2(0.738641, 0.818226)
-shape = SubResource("CircleShape2D_hcme3")
+position = Vector2(-4.05411, -0.461172)
+scale = Vector2(0.304108, -0.964129)
+shape = SubResource("RectangleShape2D_w37yh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.01029, 0.989599)
+scale = Vector2(0.769938, 0.826788)
+sprite_frames = SubResource("SpriteFrames_u06ap")
+autoplay = "default"
+frame_progress = 0.862613
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 3
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.42109e-14, -2.22045e-16)
-scale = Vector2(0.8596, 0.658364)
+[node name="killCollider" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(-3.01019, -0.968905)
+scale = Vector2(0.472023, 0.590704)
 shape = SubResource("CircleShape2D_mym8p")
