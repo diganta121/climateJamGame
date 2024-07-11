@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd3o03008mkjh"]
+[gd_scene load_steps=9 format=3 uid="uid://cd3o03008mkjh"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_n5bs8"]
 [ext_resource type="PackedScene" uid="uid://dl70ur6j0f4cl" path="res://player.tscn" id="1_rxnuy"]
 [ext_resource type="PackedScene" uid="uid://doqstbl8a707o" path="res://fish.tscn" id="2_ax5o1"]
 [ext_resource type="PackedScene" uid="uid://di5d20smlxltb" path="res://plastic.tscn" id="4_pp6nf"]
 [ext_resource type="PackedScene" uid="uid://bl6wqblrp7rwa" path="res://tower.tscn" id="5_fc1pm"]
+[ext_resource type="Texture2D" uid="uid://db77uatulr08j" path="res://assets/canvas_test.png" id="6_3p7jt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvh3"]
 size = Vector2(97.7983, 20)
@@ -115,3 +116,8 @@ shape = SubResource("RectangleShape2D_kbvh3")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nfvq0")
 format = 2
+
+[node name="CanvasTest" type="Sprite2D" parent="."]
+position = Vector2(-290, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("6_3p7jt")

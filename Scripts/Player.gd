@@ -12,7 +12,17 @@ func _physics_process(delta):
 		velocity = direction * SPEED
 	else:
 		velocity = Vector2.ZERO
-		
+		rotation = 0
 	if velocity.x != 0:
-		$AnimatedSprite2D.flip_h = velocity.x > 0
+		$AnimatedSprite2D.flip_h = velocity.x > 0 
+		rotation = direction.angle()
+		if velocity.x < 0:
+			rotation -=3.2
+	else:
+		if velocity.y !=0:
+			$AnimatedSprite2D.flip_h = false
+			if velocity.y >0:
+				rotation = -1.57
+			elif velocity.y <0:
+				rotation = 1.57
 	move_and_slide()
