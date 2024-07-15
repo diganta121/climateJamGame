@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c631sxydmoshx"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_022yy"]
+[ext_resource type="Texture2D" uid="uid://b6bu6un5x646w" path="res://assets/pipe1.png" id="2_jt7mp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kxho"]
+atlas = ExtResource("2_jt7mp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1uvh6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kxho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pipe" type="Node2D"]
+script = ExtResource("1_022yy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9.5)
+scale = Vector2(1, 1.29688)
+sprite_frames = SubResource("SpriteFrames_1uvh6")

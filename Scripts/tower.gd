@@ -17,3 +17,4 @@ func _on_area_2d_area_entered(area):
 		%screen1.set_animation('green')
 		%screen2.set_animation('green')
 		print("greeeen")
+		%Label.text = str(randi_range(70,95))

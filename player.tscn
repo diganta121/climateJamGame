@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl70ur6j0f4cl"]
+[gd_scene load_steps=13 format=3 uid="uid://dl70ur6j0f4cl"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dolf1"]
 [ext_resource type="Texture2D" uid="uid://cplohnhpbyg4r" path="res://assets/bass.png" id="2_7mfiw"]
@@ -57,9 +57,17 @@ radius = 5.78289
 height = 11.9788
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_078eg"]
-size = Vector2(30, 12)
+size = Vector2(33.6667, 14.6667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaal8"]
+bg_color = Color(0.533505, 0.659204, 1.92523e-07, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 collision_priority = 2.0
 script = ExtResource("1_dolf1")
 
@@ -76,9 +84,22 @@ scale = Vector2(-1.07559, 4.84186)
 shape = SubResource("CapsuleShape2D_isyq3")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+unique_name_in_owner = true
+collision_layer = 3
+collision_mask = 63
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-20, -2)
+position = Vector2(-18.1667, -2)
 shape = SubResource("RectangleShape2D_078eg")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+offset_left = -63.3333
+offset_top = -27.3333
+offset_right = 86.6667
+offset_bottom = -0.333332
+scale = Vector2(0.629155, 0.351625)
+theme_override_styles/fill = SubResource("StyleBoxFlat_gaal8")
+step = 1.0
+value = 100.0

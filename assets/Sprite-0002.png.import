@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmxp8gj5tir73"
-path="res://.godot/imported/Sand_test1.png-0f1d65eb727d4d28837979616ab6b23d.ctex"
+uid="uid://d25bs8f4mqlgf"
+path="res://.godot/imported/Sprite-0002.png-6a9e9b7d63ba899bb9f536f35dd719ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sand_test1.png"
-dest_files=["res://.godot/imported/Sand_test1.png-0f1d65eb727d4d28837979616ab6b23d.ctex"]
+source_file="res://assets/Sprite-0002.png"
+dest_files=["res://.godot/imported/Sprite-0002.png-6a9e9b7d63ba899bb9f536f35dd719ed.ctex"]
 
 [params]
 

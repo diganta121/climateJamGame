@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd3o03008mkjh"]
+[gd_scene load_steps=13 format=3 uid="uid://cd3o03008mkjh"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_n5bs8"]
 [ext_resource type="PackedScene" uid="uid://dl70ur6j0f4cl" path="res://player.tscn" id="1_rxnuy"]
@@ -6,24 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://di5d20smlxltb" path="res://plastic.tscn" id="4_pp6nf"]
 [ext_resource type="PackedScene" uid="uid://bl6wqblrp7rwa" path="res://tower.tscn" id="5_fc1pm"]
 [ext_resource type="Texture2D" uid="uid://db77uatulr08j" path="res://assets/canvas_test.png" id="6_3p7jt"]
+[ext_resource type="PackedScene" uid="uid://cmoxbo4w3glg6" path="res://plant_1.tscn" id="7_owgfj"]
+[ext_resource type="PackedScene" uid="uid://y0dv1exbumrh" path="res://flower_1.tscn" id="8_7tsfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvh3"]
-size = Vector2(97.7983, 20)
+size = Vector2(44.53, 7.04566)
 
-[sub_resource type="TileSet" id="TileSet_nfvq0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k5uv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ro5qw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oihk8"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(34, 0)
 script = ExtResource("1_n5bs8")
-
-[node name="Player" parent="." instance=ExtResource("1_rxnuy")]
-position = Vector2(-109.88, -11.2405)
-rotation = 0.000305517
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
 
 [node name="Fishes" type="Node" parent="."]
 
@@ -66,7 +64,7 @@ position = Vector2(-84, 108)
 position = Vector2(122, 173)
 
 [node name="Fish14" parent="Fishes" instance=ExtResource("2_ax5o1")]
-position = Vector2(-2, 108)
+position = Vector2(-222, 168)
 
 [node name="Fish15" parent="Fishes" instance=ExtResource("2_ax5o1")]
 position = Vector2(100, 50)
@@ -107,17 +105,145 @@ position = Vector2(-355, -42)
 position = Vector2(2016, -61)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 58)
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3189, 3246)
+position = Vector2(5876, 634)
 scale = Vector2(500, 110.346)
 shape = SubResource("RectangleShape2D_kbvh3")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_nfvq0")
-format = 2
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(0, -724)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(5767, 0)
+scale = Vector2(1081.8, 16.0037)
+shape = SubResource("RectangleShape2D_6k5uv")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node"]
+position = Vector2(34, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D"]
+position = Vector2(-12, 981)
+shape = SubResource("WorldBoundaryShape2D_ro5qw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node"]
+position = Vector2(34, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D2"]
+position = Vector2(0, -817)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_oihk8")
 
 [node name="CanvasTest" type="Sprite2D" parent="."]
-position = Vector2(-290, 64)
-scale = Vector2(2, 2)
+position = Vector2(5465, -112)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_3p7jt")
+
+[node name="Player" parent="." instance=ExtResource("1_rxnuy")]
+top_level = true
+position = Vector2(-110, -11)
+rotation = 0.000305517
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Plastic" parent="." instance=ExtResource("4_pp6nf")]
+position = Vector2(-719, 635)
+rotation = -0.879992
+scale = Vector2(3.43381, 2.84508)
+
+[node name="foliage" type="Node" parent="."]
+
+[node name="plant1" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-417, 721)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant4" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-344, 708)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant5" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-498, 721)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant3" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-575, 717)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant6" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-772, 699)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant7" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-846, 694)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant8" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-923, 686)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant9" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(382, 647)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant10" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(305, 639)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant11" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(958, 717)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant12" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(881, 709)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant13" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(756, 701)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant14" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(679, 693)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant15" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(1100, 717)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant16" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(1023, 709)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant17" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(1335, 685)
+scale = Vector2(0.4, 0.4)
+
+[node name="plant18" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(1258, 677)
+scale = Vector2(0.4, 0.4)
+
+[node name="Flower1" parent="foliage/plant18" instance=ExtResource("8_7tsfa")]
+position = Vector2(-2855, -3255)
+scale = Vector2(2.5, 2.5)
+
+[node name="Flower3" parent="foliage/plant18/Flower1" instance=ExtResource("8_7tsfa")]
+position = Vector2(809, -0.00012207)
+
+[node name="Flower2" parent="foliage/plant18/Flower1" instance=ExtResource("8_7tsfa")]
+position = Vector2(205, 1.99988)
+
+[node name="plant2" parent="foliage" instance=ExtResource("7_owgfj")]
+position = Vector2(-266, 712)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
