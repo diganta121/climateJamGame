@@ -1,5 +1,6 @@
 # climatejamGame
  game jam
+
 Scene 1: The Pond
 Setting: Underwater in a serene pond. The fish community swims happily.
 MC(main character ) fish: now welcome to my family , the place is beautiful right
@@ -16,3 +17,4 @@ Setting: The river, where the fish continue their journey.
 MC Fish: “Some of our friends  didn’t make it. But we must keep going.”
 Doubting Fish: “Why should we trust you? Our numbers are dwindling!”
 Mc fish : We don't have much time to argue those who believe me follow me to the right other can go left
+team members- kora, diganta, abhi, poulo
